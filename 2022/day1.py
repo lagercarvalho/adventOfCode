@@ -1,11 +1,13 @@
-max = 0
+ls = []
 sum = 0
 f = open("inputs/input1.txt")
 for x in f:
     if x == '\n':
-        if sum > max:
-            max = sum
+        ls.append(sum)
         sum = 0
     else:
         sum += int(x)
-print(max)
+ls = sorted(ls)
+
+print(ls[-1])
+print(ls[-1]+ls[-2]+ls[-3])
