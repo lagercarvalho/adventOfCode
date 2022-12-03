@@ -8,12 +8,12 @@ str1 = ["vJrwpWtwJgWrhcsFMMfFFhFp\n",
             "CrZsJsPPZsGzwwsLwLmpwMDw\n"]
 
 def main():
-    str = open("inputs/input3.txt")
     letters = dict(zip(string.ascii_letters, range(1, len(string.ascii_letters) + 1)))
-    partOne(str, letters)
-    partTwo(str, letters)
+    partOne(letters)
+    partTwo(letters)
 
-def partOne(str, letters):
+def partOne(letters):
+    str = open("inputs/input3.txt")
     sum = 0
     for s in str:
         length = len(s)
@@ -29,7 +29,8 @@ def findCommonTwo(s1, s2):
             if x == y:
                 return x
 
-def partTwo(str, letters):
+def partTwo(letters):
+    str = open("inputs/input3.txt")
     sum = 0
     ls = []
     for index, s in enumerate(str):
@@ -38,8 +39,6 @@ def partTwo(str, letters):
             common = findCommonThree(ls)
             sum += letters[common]
             ls = []
-        else:
-            ls.append(s)
     print(sum)
 
 
@@ -48,7 +47,6 @@ def findCommonThree(ls):
         for y in ls[1]:
             for z in ls[2]:
                 if x == y and y == z:
-                    print(x)
                     return x
 
 if __name__ == "__main__":
