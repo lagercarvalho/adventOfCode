@@ -9,11 +9,12 @@ str1 = ["vJrwpWtwJgWrhcsFMMfFFhFp\n",
 
 def main():
     letters = dict(zip(string.ascii_letters, range(1, len(string.ascii_letters) + 1)))
-    partOne(letters)
-    partTwo(letters)
+    with open ("inputs/input3.txt", "r") as file:
+        str = file.read().splitlines()
+    partOne(str, letters)
+    partTwo(str, letters)
 
-def partOne(letters):
-    str = open("inputs/input3.txt")
+def partOne(str, letters):
     sum = 0
     for s in str:
         length = len(s)
@@ -29,8 +30,7 @@ def findCommonTwo(s1, s2):
             if x == y:
                 return x
 
-def partTwo(letters):
-    str = open("inputs/input3.txt")
+def partTwo(str, letters):
     sum = 0
     ls = []
     for index, s in enumerate(str):
