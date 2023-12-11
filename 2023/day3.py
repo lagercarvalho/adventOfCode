@@ -4,7 +4,7 @@ def main():
         input = file.read().splitlines()
   test1 = ["467..114..","...*......","..35..633.","......#...","617*......",".....+.58.","..592.....","......755.","...$.*....",".664.598.."]
 
-  #part1(input) #512794
+  part1(input) #512794
   part2(input)
 
 def part1(input):
@@ -27,8 +27,7 @@ def part1(input):
         
         index_start = -1
         number.clear()
-  print('Part1 Sum:', sum)
-      
+  print('Part1 Sum:', sum)  
 
 def isPartsNum(input, line_index, index_start, index_end):
   for col in range(index_start - 1, index_end + 2):
@@ -39,7 +38,6 @@ def isPartsNum(input, line_index, index_start, index_end):
         return True
   return False
 
-
 def part2(input):
   part_sum = 0
   for line_index, line in enumerate(input):
@@ -47,7 +45,6 @@ def part2(input):
       if char == '*':
         numbers = getSurroundNums(input, line_index, char_index)
         if len(numbers) == 2:
-          print(numbers)
           part_sum += numbers[0] * numbers [1]
   print("Part2 Sum:", part_sum)
 
@@ -85,10 +82,7 @@ def getDigits(input, row, col, step):
       num = getDigits(input, row, col, -1) + num
     else:
       num = num + getDigits(input, row, col, 1)
-  return num
-
-  
-        
+  return num  
 
 if __name__ == "__main__":
     main()
