@@ -9,23 +9,22 @@ def main():
 
 
 def part1(input):
-    times = list(map(int, input[0].split(":")[1].split()))
-    distances = list(map(int, input[1].split(":")[1].split()))
+    times, distances = [list(map(int, line.split(":")[1].split())) for line in input]
     wins = []
-    for index in range(len(times)):
+    for time, distance in zip(times, distances):
         win = []
-        for hold_time in range(times[index]):
-            remaining = times[index] - hold_time
-            distance = remaining * hold_time
-            if distance > distances[index]:
+        for hold_time in range(time):
+            remaining = time - hold_time
+            if remaining * hold_time > distance:
                 win.append(hold_time)
         wins.append(len(win))
     print("Part1:", math.prod(wins))
 
 
 def part2(input):
-    total_time = int("".join(input[0].split(":")[1].split()))
-    record_distance = int("".join(input[1].split(":")[1].split()))
+    total_time, record_distance = [
+        int("".join(line.split(":")[1].split())) for line in input
+    ]
     first_match = 0
     for hold_time in range(1, total_time // 2 + total_time % 2):
         remaining = total_time - hold_time
