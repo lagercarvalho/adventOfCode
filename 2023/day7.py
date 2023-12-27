@@ -40,8 +40,8 @@ def part1(input):
 
     hands = sum(types.values(), [])
     winnings = 0
-    for index, hand in enumerate(hands):
-        winnings += (index + 1) * int(hand[1])
+    for rank, (hand, bid) in enumerate(hands, 1):
+        winnings += rank * int(bid)
 
     print("Part1:", winnings)
 
@@ -100,7 +100,6 @@ def part2(input):
     for round in input:
         hand, bid = round.split()
         num_cards = numOfCards(hand)
-        # print(num_cards)
 
         jokers = 0
         for card, num in num_cards:
@@ -132,12 +131,10 @@ def part2(input):
         else:
             insert((hand, bid), types["high-card"], card_values)
 
-    print(types)
-
     hands = sum(types.values(), [])
     winnings = 0
-    for index, hand in enumerate(hands):
-        winnings += (index + 1) * int(hand[1])
+    for rank, (hand, bid) in enumerate(hands, 1):
+        winnings += rank * int(bid)
 
     print("Part2:", winnings)
 
