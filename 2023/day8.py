@@ -8,8 +8,7 @@ def main():
 
 
 def part1():
-    directions, *instructions = open("inputs/input8.txt", "r").read().splitlines()
-    del instructions[0]
+    directions, _, *instructions = open("inputs/input8.txt", "r").read().splitlines()
 
     desert_map = {
         source: (left, right)
@@ -30,8 +29,7 @@ def part1():
 
 
 def part2():
-    directions, *instructions = open("inputs/input8.txt", "r").read().splitlines()
-    del instructions[0]
+    directions, _, *instructions = open("inputs/input8.txt", "r").read().splitlines()
 
     desert_map = {
         source: (left, right)
